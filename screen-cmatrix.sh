@@ -1,7 +1,7 @@
 #!/bin/bash
 
 idle=false
-idleAfter=300000     # consider idle after 3000 ms
+idleAfter=3000     # consider idle after 3000 ms
 
 while true; do
   idleTimeMillis=$(xprintidle)
@@ -12,7 +12,8 @@ while true; do
     if [[ $active_window_name == "tilda" ]] ; then
         xdotool getactivewindow windowminimize
     fi
-    tilda -g config_0
+    # tilda -g config_0
+    gnome-terminal --window --full-screen --command=cmatrix
     idle=true
   fi
 
