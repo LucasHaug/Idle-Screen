@@ -14,6 +14,8 @@ while true; do
     fi
     # tilda -g config_0
     gnome-terminal --window --full-screen --command=cmatrix
+    window_id=$(xwininfo -name "Terminal" |sed -e 's/^ *//' | grep -E "Window id" | awk '{ print $4 }')
+    xdotool windowactivate window_id
     idle=true
   fi
 
