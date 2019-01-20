@@ -1,7 +1,7 @@
 #!/bin/bash
 
 idle=false
-idleAfter=3000     # consider idle after 3000 ms
+idleAfter=300000     # consider idle after 3000 ms
 
 while true; do
   idleTimeMillis=$(xprintidle)
@@ -15,7 +15,7 @@ while true; do
     # tilda -g config_0
     gnome-terminal --window --full-screen --command=cmatrix
     window_id=$(xwininfo -name "Terminal" |sed -e 's/^ *//' | grep -E "Window id" | awk '{ print $4 }')
-    xdotool windowactivate window_id
+    xdotool windowactivate $window_id # 0x4200006
     idle=true
   fi
 
