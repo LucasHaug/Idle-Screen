@@ -1,12 +1,13 @@
 #!/bin/bash
 
 idle=false
-idleAfter=300000     # consider idle after 3000 ms
+idleAfter=3000     # consider idle after 3000 ms
 
 while true; do
+  isFullscreen=$(./isFullscreen.py)
   idleTimeMillis=$(xprintidle)
   #echo $idleTimeMillis  # just for debug purposes.
-  if [[ $idle = false && $idleTimeMillis -gt $idleAfter ]] ; then
+  if [[ $idle = false && $idleTimeMillis -gt $idleAfter && $isFullscreen == "False" ]] ; then
     #echo "start idle"   # or whatever command(s) you want to run...
     active_window_name=$(xdotool getactivewindow getwindowname)
     if [[ $active_window_name == "tilda" ]] ; then
