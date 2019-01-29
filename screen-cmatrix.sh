@@ -1,7 +1,7 @@
 #!/bin/bash
 
 idle=false
-idleAfter=3000     # consider idle after 3000 ms
+idleAfter=300000     # consider idle after 300000 ms = 5 min
 
 while true; do
   isFullscreen=$(./isFullscreen.py)
