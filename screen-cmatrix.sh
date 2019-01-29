@@ -1,10 +1,10 @@
 #!/bin/bash
 
 idle=false
-idleAfter=300000     # consider idle after 300000 ms = 5 min
+idleAfter=240000     # consider idle after 240000 ms = 4 min
 
 while true; do
-  isFullscreen=$(./isFullscreen.py)
+  isFullscreen=$(isFullscreen.py)
   idleTimeMillis=$(xprintidle)
   #echo $idleTimeMillis  # just for debug purposes.
   if [[ $idle = false && $idleTimeMillis -gt $idleAfter && $isFullscreen == "False" ]] ; then
