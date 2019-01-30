@@ -17,7 +17,7 @@ while true; do
     gnome-terminal --window --full-screen --command=cmatrix
     window_id=$(xwininfo -name "Terminal" |sed -e 's/^ *//' | grep -E "Window id" | awk '{ print $4 }')
     sleep 1
-    xdotool windowactivate $window_id #0x4600006
+    xdotool windowactivate 0x4600006 #$window_id
     idle=true
   fi
 
