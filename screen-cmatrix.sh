@@ -1,15 +1,15 @@
 #!/bin/bash
 
 idle=false
-# idleAfter=240000     # consider idle after 240000 ms = 4 min
-idleAfter=10000
+idleAfter=240000     # consider idle after 240000 ms = 4 min
+
 while true; do
   isFullscreen=$(isFullscreen.py)
   idleTimeMillis=$(xprintidle)
   # echo $idleTimeMillis  # just for debug purposes.
   if [[ $idle = false && $idleTimeMillis -gt $idleAfter && $isFullscreen == "False" ]] ; then
     # echo "start idle"   # or whatever command(s) you want to run...
-    active_window_name=$(xdotool getactivewindow getwindowname | grep "fish")
+    active_window_name=$(xdotool getactivewindow getwindowname | grep -E "fish|tilda")
     if [[ ! -z "$active_window_name" ]] ; then # check if the variable is not empty
       xdotool getactivewindow windowminimize
     fi
