@@ -3,8 +3,11 @@
 idle=false
 idleAfter=240000     # consider idle after 240000 ms = 4 min
 
+running_dir=$(ps aux | grep "cmatrix" | grep "screen-cmatrix.sh" | awk '{ print $12 }')
+isFullscreen_program="${running_dir/"screen-cmatrix.sh"/"isFullscreen.py"}"
+
 while true; do
-  isFullscreen=$(././isFullscreen.py)
+  isFullscreen=$(./$isFullscreen_program)
   idleTimeMillis=$(xprintidle)
   # echo $idleTimeMillis  # just for debug purposes.
   if [[ $idle = false && $idleTimeMillis -gt $idleAfter && $isFullscreen == "False" ]] ; then
