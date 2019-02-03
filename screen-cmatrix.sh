@@ -21,7 +21,7 @@ while true; do
       xdotool getactivewindow windowminimize
     fi
     # tilda -g config_0
-    gnome-terminal --window --full-screen --command=cmatrix
+    gnome-terminal --window --full-screen --command="cmatrix -B"
     window_id=$(xwininfo -name "Terminal" |sed -e 's/^ *//' | grep -E "Window id" | awk '{ print $4 }')
     window_id=$(echo ${window_id:0:8}6)
     sleep 0.01
