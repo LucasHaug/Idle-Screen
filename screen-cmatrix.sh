@@ -7,6 +7,10 @@ running_dir=$(ps aux | grep "cmatrix" | grep "screen-cmatrix.sh" | awk '{ print 
 isFullscreen_program="${running_dir/"screen-cmatrix.sh"/"isFullscreen.py"}"
 
 while true; do
+  working_dir=$(pwd)
+  if [[ $working_dir != "/" ]] ; then
+    cd /
+  fi
   isFullscreen=$(./$isFullscreen_program)
   idleTimeMillis=$(xprintidle)
   # echo $idleTimeMillis  # just for debug purposes.
