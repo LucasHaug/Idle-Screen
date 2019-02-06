@@ -2,5 +2,8 @@
 
 É necessário instalar alguns pacotes, o que pode ser feito por meio do comando:
 
-sudo apt install xprintidle xdotool
+```bash
+sudo apt install xprintidle xdotool caffeine
+```
 
+Obs.: procurar alternativa para não precisar instalar o caffeine.
