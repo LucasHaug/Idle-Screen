@@ -7,3 +7,5 @@ sudo apt install xprintidle xdotool caffeine
 ```
 
 Obs.: procurar alternativa para não precisar instalar o caffeine.
+
+Deve-se mudar a transparência do terminal.
