@@ -25,7 +25,7 @@ while true; do
     window_id=$(xwininfo -name "Terminal" |sed -e 's/^ *//' | grep -E "Window id" | awk '{ print $4 }')
     window_id=$(echo ${window_id:0:8}6)
     sleep 0.05
-    xdotool windowactivate $window_id
+    # xdotool windowactivate $window_id
     idle=true
   fi
 
